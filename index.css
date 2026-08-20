@@ -12,9 +12,8 @@
 
     /* Cores dos LEDs */
     --red-on: #ef4444;
-    --red-off: #94a3b8;
     --green-on: #10b981;
-    --green-off: #94a3b8;
+    --btn-off: #94a3b8;
 
     /* Sombras e Bordas */
     --radius-lg: 16px;
@@ -41,12 +40,12 @@ body {
 }
 
 /* ==========================================================================
-   CONTAINER PRINCIPAL E STATUS
+   CONTAINER PRINCIPAL (.card)
    ========================================================================== */
-.container {
+.card {
     background-color: var(--card-bg);
     width: 100%;
-    max-width: 420px;
+    max-width: 380px;
     padding: 32px 28px;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-soft);
@@ -54,107 +53,72 @@ body {
     text-align: center;
 }
 
-.header {
-    margin-bottom: 24px;
-}
-
-h1 {
-    font-size: 1.5rem;
+.card h2 {
+    font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: -0.02em;
-    margin-bottom: 8px;
-}
-
-/* Indicador do Status da Conexão */
-.status-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    background: var(--bg-color);
-    padding: 6px 12px;
-    border-radius: 20px;
-}
-
-.status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #e2e8f0;
-}
-
-.status-dot.online {
-    background-color: var(--green-on);
-    box-shadow: 0 0 8px var(--green-on);
+    margin-bottom: 20px;
+    color: var(--text-main);
 }
 
 /* ==========================================================================
-   PAINÉIS DE CONTROLE E BOTÕES
+   GRUPOS DE CONTROLE (.control-group)
    ========================================================================== */
-.painel-leds {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.grupo-led {
+.control-group {
     background-color: var(--bg-color);
     padding: 16px;
     border-radius: var(--radius-md);
     border: 1px solid var(--border-color);
+    margin-bottom: 16px;
 }
 
-.grupo-led h2 {
-    font-size: 0.95rem;
+.control-group:last-child {
+    margin-bottom: 0;
+}
+
+.control-group h3 {
+    font-size: 0.9rem;
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-bottom: 12px;
 }
 
-.botoes-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.btn {
-    padding: 12px;
-    font-size: 0.9rem;
+/* Estilo base para todos os botões dentro dos grupos */
+.control-group button {
+    padding: 10px 18px;
+    font-size: 0.85rem;
     font-weight: 600;
     color: #ffffff;
     border: none;
     border-radius: var(--radius-md);
     cursor: pointer;
+    margin: 0 4px;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     outline: none;
 }
 
-.btn:hover {
+.control-group button:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-hover);
 }
 
-.btn:active {
-    transform: translateY(0) scale(0.98);
+.control-group button:active {
+    transform: translateY(0) scale(0.96);
 }
 
-.btn:focus-visible {
-    outline: 2px solid var(--text-main);
-    outline-offset: 2px;
-}
-
-/* Variações de Cores */
-.btn-red-on {
+/* ==========================================================================
+   CLASSES ESPECÍFICAS DOS BOTÕES
+   ========================================================================== */
+.btn-on-red {
     background-color: var(--red-on);
 }
 
-.btn-red-off, .btn-green-off {
-    background-color: var(--red-off);
+.btn-off-red, 
+.btn-off-green {
+    background-color: var(--btn-off);
 }
 
-.btn-green-on {
+.btn-on-green {
     background-color: var(--green-on);
 }
